@@ -107,21 +107,21 @@
 //int second = n % 3600 % 60;
 //Console.WriteLine($"{hour}:{minute}:{second}");
 
-try
-{
-    Console.Write("Введите четырехзначное число:");
-    int n = int.Parse(Console.ReadLine());
-    int a = n % 10;
-    int b = n % 100 / 10;
-    int c = n % 1000 / 100;
-    int d = n / 1000;
-    int s = a + b + c + d;
-    Console.WriteLine(s);
-}
-catch (Exception ex);
-{
-    Console.WriteLine(ex.Message);
-}
+//try
+//{
+//    Console.Write("Введите четырехзначное число:");
+//    int n = int.Parse(Console.ReadLine());
+//    int a = n % 10;
+//    int b = n % 100 / 10;
+//    int c = n % 1000 / 100;
+//    int d = n / 1000;
+//    int s = a + b + c + d;
+//    Console.WriteLine(s);
+//}
+//catch (Exception ex)
+//{
+//    Console.WriteLine(ex.Message);
+//}
 
 try
 {
@@ -133,7 +133,7 @@ try
     int x = a * 100 + b * 10 + c;
     Console.WriteLine(x);
 }
-catch (Exception ex);
+catch (Exception ex)
 {
     Console.WriteLine(ex.Message);
 }
