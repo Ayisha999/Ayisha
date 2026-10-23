@@ -19,8 +19,8 @@
 //}
 
 
-int[] mas1 = new int[5];
-int[] mas2 = { 1, 4, 2, 9, 3 };
+//int[] mas1 = new int[5];
+//int[] mas2 = { 1, 4, 2, 9, 3 };
 //int[] mas3 = mas2;
 //mas3[3] = 12;
 //Console.WriteLine(mas3[3]);
@@ -126,47 +126,142 @@ int[] mas2 = { 1, 4, 2, 9, 3 };
 //Console.WriteLine(personId);
 
 
-try {
-    Console.Write("Введите дробное двоичное число: ");
-    string input = Console.ReadLine()!;
-    int dotIndex = input.IndexOf('.');
-    string intPart = dotIndex == -1 ? input : input.Substring(0, dotIndex);
-    string fracPart = dotIndex == -1 ? "" : input.Substring(dotIndex + 1);
+//try {
+//    Console.Write("Введите дробное двоичное число: ");
+//    string input = Console.ReadLine()!;
+//    int dotIndex = input.IndexOf('.');
+//    string intPart = dotIndex == -1 ? input : input.Substring(0, dotIndex);
+//    string fracPart = dotIndex == -1 ? "" : input.Substring(dotIndex + 1);
 
-    while (intPart.Length % 3 != 0)
-    {
-        intPart = "0" + intPart;
-    }
-    while (fracPart.Length % 3 != 0)
-    {
-        fracPart = fracPart + "0";
-    }
+//    while (intPart.Length % 3 != 0)
+//    {
+//        intPart = "0" + intPart;
+//    }
+//    while (fracPart.Length % 3 != 0)
+//    {
+//        fracPart = fracPart + "0";
+//    }
 
-    Console.Write("Восьмеричное число: ");
-    bool isFirstNonZeroFound = false;
-    for (int i = 0; i < intPart.Length; i += 3)
-    {
-        int val = (intPart[i] - '0') * 4 + (intPart[i + 1] - '0') * 2 + (intPart[i + 2] - '0') * 1;
+//    Console.Write("Восьмеричное число: ");
+//    bool isFirstNonZeroFound = false;
+//    for (int i = 0; i < intPart.Length; i += 3)
+//    {
+//        int val = (intPart[i] - '0') * 4 + (intPart[i + 1] - '0') * 2 + (intPart[i + 2] - '0') * 1;
 
-        if (val != 0 || isFirstNonZeroFound || i == intPart.Length - 3)
+//        if (val != 0 || isFirstNonZeroFound || i == intPart.Length - 3)
+//        {
+//            Console.Write(val);
+//            isFirstNonZeroFound = true;
+//        }
+//    }
+//    if (fracPart.Length > 0)
+////    {
+////        Console.Write(".");
+//for (int i = 0; i < fracPart.Length; i += 3)
+//{
+//int val = (fracPart[i] - '0') * 4 + (fracPart[i + 1] - '0') * 2 + (fracPart[i + 2] - '0') * 1;
+//Console.Write(val);
+//}
+//    }
+
+//    Console.WriteLine();
+//}
+//catch (Exception e)
+//////{
+////    Console.WriteLine($"Произошла ошибка: {e.Message}");
+////}
+
+//int[,] mas = new int[4, 4];
+//for (int i = 0; i < mas.GetLength(0); i++)
+//{
+//    for (int j = 0; j < mas.GetLength(1); j++)
+//    {
+//        mas[i, j] = rnd.Next(-5, 6);
+//        Console.Write($"{mas[i, j]}");
+//    }
+//    Console.WriteLine();
+//}
+////int min = mas[0, 0];
+
+//Random rnd = new Random();
+//int[,] mas = new int[rnd.Next(4, 9),rnd.Next(4, 9)];
+//for (int i = 0; i < mas.GetLength(0); i++)
+//{
+//    for (int j = 0; j < mas.GetLength(1); j++)
+//    {
+//        mas[i, j] = rnd.Next(-3, 4);
+//        Console.Write($"{mas[i, j]}");
+//    }
+//    Console.WriteLine();
+//}
+//int count = 0;
+//for (int i = 0; i < mas.GetLength(0); i++) ;
+//{
+//    if (mas[int, 1] >  0) count++;
+//}
+//Console.WriteLine($"Количество отрицательных элементов во втором столбце {count}");
+
+//30 вариарт средний уровень
+//try
+//{
+//    Random rnd = new Random();
+//    Console.Write("Введите количество строк:");
+//    int n = int.Parse(Console.ReadLine()!);
+//    Console.Write("Введите количество столбцов: ");
+//    int m = int.Parse(Console.ReadLine()!);
+//    int[,] mas = new int[n, m];
+//    for (int i = 0; i < mas.GetLength(0); i++)
+//    {
+//        for (int j = 0; j < mas.GetLength(1); j++)
+//        {
+//            mas[i, j] = rnd.Next(1, 10);
+//            Console.Write($"{mas[i, j]} ");
+//        }
+//        Console.WriteLine();
+//    }
+//    for (int i = 0; i < mas.GetLength(0); i++)
+//    {
+//        for (int j = 0; j < mas.GetLength(1); j++)
+
+//            for (int j = 0; j < mas.GetLength(1); j++)
+//            {
+//                if (mas[i, j] > mas[i, k])
+//        }
+//    }
+//}
+//catch (Exception e)
+////{
+////    Console.WriteLine(e.Message);
+////}
+
+////30 вариант высокий уровень
+//using System.Net.Security;
+//I
+//int[,] mas = new int[5, 5];
+//for (int i = 0 i < mas.GetLength(0); i++)
+//{
+//    for (int j = 0 j < mas.GetLength(1); j++)
+//    {
+//        mas[i, j] = 1;
+//    }
+//}
+
+try
+{
+    Random rnd = new Random();
+    int rows = 5;
+    int cols = 4;
+    int[,] mas = new int[rows, cols];
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
         {
-            Console.Write(val);
-            isFirstNonZeroFound = true;
+            mas[i, j] = rnd.Next(1, 50);
         }
     }
-    if (fracPart.Length > 0)
-    {
-        Console.Write(".");
-        for (int i = 0; i < fracPart.Length; i += 3)
-        {
-            int val = (fracPart[i] - '0') * 4 + (fracPart[i + 1] - '0') * 2 + (fracPart[i + 2] - '0') * 1;
-            Console.Write(val);
-        }
-    }
-
-    Console.WriteLine();
 }
+
 catch (Exception e)
 {
-    Console.WriteLine($"Произошла ошибка: {e.Message}");
+    Console.WriteLine();
 }
