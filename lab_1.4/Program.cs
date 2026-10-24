@@ -244,24 +244,40 @@
 //    {
 //        mas[i, j] = 1;
 //    }
+////}
+
+//try
+//{
+//    Random rnd = new Random();
+//    int rows = 5;
+//    int cols = 4;
+//    int[,] mas = new int[rows, cols];
+//    for (int i = 0; i < rows; i++)
+//    {
+//        for (int j = 0; j < cols; j++)
+//        {
+//            mas[i, j] = rnd.Next(1, 50);
+//        }
+//    }
 //}
 
-try
+//catch (Exception e)
+//{
+//    Console.WriteLine();
+//}
+
+Console.WriteLine("Слова, содержащие букву 'k':");
+
+foreach (string word in words)
 {
-    Random rnd = new Random();
-    int rows = 5;
-    int cols = 4;
-    int[,] mas = new int[rows, cols];
-    for (int i = 0; i < rows; i++)
+    bool hasK = false;
+
+    foreach (char ch in word)
     {
-        for (int j = 0; j < cols; j++)
+        if (ch == 'k' || ch == 'K' || ch == 'к' || ch == 'К')
         {
-            mas[i, j] = rnd.Next(1, 50);
+            hasK = true;
+            break;
         }
     }
-}
-
-catch (Exception e)
-{
-    Console.WriteLine();
 }
