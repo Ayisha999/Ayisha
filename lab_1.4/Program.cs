@@ -258,26 +258,197 @@
 //        {
 //            mas[i, j] = rnd.Next(1, 50);
 //        }
+////    }
+////}
+
+////catch (Exception e)
+////{
+////    Console.WriteLine();
+////}
+
+//Console.WriteLine("Слова, содержащие букву 'k':");
+
+//foreach (string word in words)
+//{
+//    bool hasK = false;
+
+//    foreach (char ch in word)
+//    {
+//        if (ch == 'k' || ch == 'K' || ch == 'к' || ch == 'К')
+//        {
+//            hasK = true;
+////            break;
+////        }
+////    }
+////}
+//using System.Net.NetworkInformation;
+
+//Random random-new Random();
+//for (int i = 0 i < matrix.GetLength(0); i++)
+//{
+//    for (int j = 0; j < matrix.GetLength(1); j++)
+//    {
+//        matrix[i, j] = (char)random.Next(40, 70);
+//        Console.Write(matrix[i, j] + " ");
+//    }
+//    Console.WriteLine();
+//}
+//int sum = 0;
+//for (int i = 0; i < matrix.GetLength(0); i++)
+//{
+//    for (int j = 0; j < matrix.GetLength(1); j++)
+//    {
+//        if (char.IsDigit(matrix[i, j])) sum += int.Parse(matrix[i, j].ToString());
+//    }
+////}
+////I
+////Console.WriteLine("Sum=+sum");
+
+////средний уровень 30 вариант
+//char[] mas = new char[15];
+//Console.Write("Введите строку: ");
+//ing stroka Console.ReadLine()!;
+//mas stroka.ToArray();
+//Console.Write("Введите строку поиска:");
+//string word = Console.ReadLine()!;
+//int count = 0;
+//int wordLength word.Length;
+//for (int i = 0; i < mas.Length wordLength; i++)
+//{
+//    bool match = true;
+//    for (int j = 0; j < wordLength; j++)
+//    {
+//        if (mas[i + j] != word[j])
+//        {
+//            match = false;
+//            break;
+//        }
+//        if (match) count++;
+//    }
+//    Console.WriteLine($"Слово (word) встречается в массиве (count) раз.");
+
+//using System.Text.RegularExpressions;
+//string s = "Бык тупогуб, тупогубенький бычок, у быка губа бела была тупа";
+//Regex regex = new Regex(@"туп(\w*)");
+//MatchCollection matches = regex.Matches(s);
+//if (matches.Count > 0)
+//{
+//}
+//foreach (Match match in matches)
+//    Console.WriteLine(match.Value);
+//else Console.WriteLine("Нет совпадений");
+
+//using System.Text.RegularExpressions;
+//string s = "456-435-2318";
+//string pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}$";
+
+//if (Regex.IsMatch(s, pattern, RegexOptions.IgnoreCase))
+//    Console.WriteLine("OK");
+//else Console.WriteLine("No");
+
+//using static = "daria@mail.ru"
+//string s = "daria@mail.ru";
+//string pattern = @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!
+//P
+//\.))][-!#$%&'
+//\*\+/=\?\^^\{\}\\~\w])*)(?<=[0-9a-z])@))" +
+//@"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-
+//z][- backslash w]*[ theta-9a-z]* backslash.)+ [a - z*theta - 9]\{2, 17\} ))\$^ u ;
+
+//if (Regex.IsMatch(s, pattern, RegexOptions.IgnoreCase))
+//    Console.WriteLine("OK");
+//else Console.WriteLine("No");
+
+////Задание 5 средний ур
+//char[] charArray = "The quick brown fox jumps over the lazy dog and a kitten".ToCharArray();
+//string text = new string(charArray);
+//char[] separators = new char[] { ' ', ',', '.', '!', '?', '-', ';', ':' };
+//string[] words = text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+//Console.WriteLine($"Исходный текст: {text}");
+//Console.WriteLine("\nСлова, содержащие букву 'k':");
+//bool found = false;
+//foreach (string word in words)
+//{
+//    if (word.Contains("k", StringComparison.OrdinalIgnoreCase))
+//    {
+//        Console.WriteLine($"- {word}");
+//        found = true;
+//    }
+//}
+//if (!found)
+//{
+//    Console.WriteLine("Слова с буквой 'k' не найдены.");
+//}
 //    }
 //}
 
-//catch (Exception e)
-//{
-//    Console.WriteLine();
+////базовый
+//using System.Text.RegularExpressions;
+
+//string pattern = "^ [A-Za-z]$";
+//Console.WriteLine("Введите строку:");
+//string text = Console.ReadLine();
+//for (int i = 0; i < text.Length; i++)
 //}
+//if (Regex.IsMatch(text[i].ToString(), pattern))
+//{
+//    text = text.Remove(i, 1);
+//    i--;
+//}
+//Console.WriteLine(text);
 
-Console.WriteLine("Слова, содержащие букву 'k':");
+//try
+//{
+//    Console.Write("Введите а:");
+//    double a double.Parse(Console.ReadLine()!);
+//    Console.Write("Введите b:");
+//    double b double.Parse(Console.ReadLine()!);
+//    Console.WriteLine($"z={Max(D}");
+//}
+////double Max(double x, double y)
+////catch(Exception e)
+////{
+////    Console.WriteLine(e.Message);
+////}
+//int[] mas1 = new int[8];
+//int[] mas2 = new int[8];
+//mas1 = GetMas(mas1);
+//mas2 = GetMas(mas2);
+//Print(mas1);
+//Print(mas2)
 
-foreach (string word in words)
+//Задание 23 средний уровень
+using System;
+
+class Program
 {
-    bool hasK = false;
-
-    foreach (char ch in word)
+    double Integrand(double x)
     {
-        if (ch == 'k' || ch == 'K' || ch == 'к' || ch == 'К')
+        return Math.Pow(x, 3) + 2 * Math.Pow(x, 2) - 1;
+    }
+    double CalculateIntegral(double a, double b, int n)
+    {
+        double h = (b - a) / n;
+        double sum = 0.0;
+        for (int i = 0; i < n; i++)
         {
-            hasK = true;
-            break;
+            double xi = a + i * h;
+            sum += Integrand(xi);
         }
+        return h * sum;
+    }
+    void Run()
+    {
+        double a = 1.0;
+        double b = 4.0;
+        double result10 = CalculateIntegral(a, b, 10);
+        double result100 = CalculateIntegral(a, b, 100);
+        Console.WriteLine($"Значение интеграла при n = 10:  {result10}");
+        Console.WriteLine($"Значение интеграла при n = 100: {result100}");
+    }
+    static void Main()
+    {
+        Program program = new Program(); 
+        program.Run(); 
     }
 }
