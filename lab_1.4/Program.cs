@@ -417,38 +417,121 @@
 //Print(mas1);
 //Print(mas2)
 
-//Задание 23 средний уровень
-using System;
+////Задание 23 средний уровень
+//using System;
 
-class Program
+//class Program
+//{
+//    double Integrand(double x)
+//    {
+//        return Math.Pow(x, 3) + 2 * Math.Pow(x, 2) - 1;
+//    }
+//    double CalculateIntegral(double a, double b, int n)
+//    {
+//        double h = (b - a) / n;
+//        double sum = 0.0;
+//        for (int i = 0; i < n; i++)
+//        {
+//            double xi = a + i * h;
+//            sum += Integrand(xi);
+//        }
+//        return h * sum;
+//    }
+//    void Run()
+//    {
+//        double a = 1.0;
+//        double b = 4.0;
+//        double result10 = CalculateIntegral(a, b, 10);
+//        double result100 = CalculateIntegral(a, b, 100);
+//        Console.WriteLine($"Значение интеграла при n = 10:  {result10}");
+//        Console.WriteLine($"Значение интеграла при n = 100: {result100}");
+//    }
+//    static void Main()
+//    {
+//        Program program = new Program(); 
+//        program.Run(); 
+//    }
+//}
+
+namespace EmployeeContracts
 {
-    double Integrand(double x)
+    struct Employee
     {
-        return Math.Pow(x, 3) + 2 * Math.Pow(x, 2) - 1;
-    }
-    double CalculateIntegral(double a, double b, int n)
-    {
-        double h = (b - a) / n;
-        double sum = 0.0;
-        for (int i = 0; i < n; i++)
+        public string LastName;
+        public string Position;
+        public DateTime ContractDate;
+        public int ContractDurationYears;
+        public decimal Salary;
+        public void PrintInfo()
         {
-            double xi = a + i * h;
-            sum += Integrand(xi);
+            Console.WriteLine($"Фамилия: {LastName}, Должность: {Position}, " +
+                              $"Дата контракта: {ContractDate:dd.MM.yyyy}, " +
+                              $"Срок (лет): {ContractDurationYears}, Оклад: {Salary:C}");
         }
-        return h * sum;
     }
-    void Run()
+
+    class Program
     {
-        double a = 1.0;
-        double b = 4.0;
-        double result10 = CalculateIntegral(a, b, 10);
-        double result100 = CalculateIntegral(a, b, 100);
-        Console.WriteLine($"Значение интеграла при n = 10:  {result10}");
-        Console.WriteLine($"Значение интеграла при n = 100: {result100}");
-    }
-    static void Main()
-    {
-        Program program = new Program(); 
-        program.Run(); 
+        static void Main()
+        {
+            DateTime oneYearAgo = DateTime.Now.AddYears(-1);
+            List<Employee> employees = new List<Employee>
+            {
+                new Employee
+                {
+                    LastName = "Иванов",
+                    Position = "Инженер",
+                    ContractDate = DateTime.Now.AddMonths(-6),
+                    ContractDurationYears = 2,
+                    Salary = 85000
+                },
+                new Employee
+                {
+                    LastName = "Петров",
+                    Position = "Менеджер",
+                    ContractDate = DateTime.Now.AddYears(-2),
+                    ContractDurationYears = 5,
+                    Salary = 70000
+                },
+                new Employee
+                {
+                    LastName = "Сидорова",
+                    Position = "Бухгалтер",
+                    ContractDate = DateTime.Now.AddDays(-100),
+                    ContractDurationYears = 1,
+                    Salary = 75000
+                }
+            };
+            Console.WriteLine("Работники, подписавшие контракт менее года назад:\n");
+            var recentEmployees = employees.Where(e => e.ContractDate > oneYearAgo);
+            foreach (var emp in recentEmployees)
+            {
+                emp.PrintInfo();
+            }
+        }
     }
 }
+
+////lab8
+//using System.Data;
+//DateTime datal = new DateTime();
+//Console.WriteLine(datal);
+//DateTime dateNow DateTime.Now;
+//Console.WriteLine(dateNow);
+//DateTime date2 = new DateTime(2026, 11, 21);
+//Console.WriteLine(date2);
+//DateTime date3 = new DateTime(2026, 11, 21, 12, 37, 45);
+//Console.WriteLine(date3);
+//Console.WriteLine(DateTime.Now);
+//Console.WriteLine(DateTime.UtcNow);
+//Console.WriteLine(DateTime.Today);
+//Console.WriteLine(dateNow.Year);
+//Console.WriteLine(dateNow.Month);
+//Console.WriteLine(dateNow.Day);
+//Console.WriteLine(dateNow.Date);
+//Console.WriteLine(dateNow.Minute);
+//Console.WriteLine(dateNow.Hour);
+//Console.WriteLine(dateNow.Second);
+//Console.WriteLine(dateNow.Millisecond);
+//Console.WriteLine(dateNow.Second)
+
