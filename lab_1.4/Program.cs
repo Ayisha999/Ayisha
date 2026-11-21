@@ -453,64 +453,64 @@
 //    }
 //}
 
-namespace EmployeeContracts
-{
-    struct Employee
-    {
-        public string LastName;
-        public string Position;
-        public DateTime ContractDate;
-        public int ContractDurationYears;
-        public decimal Salary;
-        public void PrintInfo()
-        {
-            Console.WriteLine($"Фамилия: {LastName}, Должность: {Position}, " +
-                              $"Дата контракта: {ContractDate:dd.MM.yyyy}, " +
-                              $"Срок (лет): {ContractDurationYears}, Оклад: {Salary:C}");
-        }
-    }
+//namespace EmployeeContracts
+//{
+//    struct Employee
+//    {
+//        public string LastName;
+//        public string Position;
+//        public DateTime ContractDate;
+//        public int ContractDurationYears;
+//        public decimal Salary;
+//        public void PrintInfo()
+//        {
+//            Console.WriteLine($"Фамилия: {LastName}, Должность: {Position}, " +
+//                              $"Дата контракта: {ContractDate:dd.MM.yyyy}, " +
+//                              $"Срок (лет): {ContractDurationYears}, Оклад: {Salary:C}");
+//        }
+//    }
 
-    class Program
-    {
-        static void Main()
-        {
-            DateTime oneYearAgo = DateTime.Now.AddYears(-1);
-            List<Employee> employees = new List<Employee>
-            {
-                new Employee
-                {
-                    LastName = "Иванов",
-                    Position = "Инженер",
-                    ContractDate = DateTime.Now.AddMonths(-6),
-                    ContractDurationYears = 2,
-                    Salary = 85000
-                },
-                new Employee
-                {
-                    LastName = "Петров",
-                    Position = "Менеджер",
-                    ContractDate = DateTime.Now.AddYears(-2),
-                    ContractDurationYears = 5,
-                    Salary = 70000
-                },
-                new Employee
-                {
-                    LastName = "Сидорова",
-                    Position = "Бухгалтер",
-                    ContractDate = DateTime.Now.AddDays(-100),
-                    ContractDurationYears = 1,
-                    Salary = 75000
-                }
-            };
-            Console.WriteLine("Работники, подписавшие контракт менее года назад:\n");
-            var recentEmployees = employees.Where(e => e.ContractDate > oneYearAgo);
-            foreach (var emp in recentEmployees)
-            {
-                emp.PrintInfo();
-            }
-        }
-    }
-}
+//    class Program
+//    {
+//        static void Main()
+//        {
+//            DateTime oneYearAgo = DateTime.Now.AddYears(-1);
+//            List<Employee> employees = new List<Employee>
+//            {
+//                new Employee
+//                {
+//                    LastName = "Иванов",
+//                    Position = "Инженер",
+//                    ContractDate = DateTime.Now.AddMonths(-6),
+//                    ContractDurationYears = 2,
+//                    Salary = 85000
+//                },
+//                new Employee
+//                {
+//                    LastName = "Петров",
+//                    Position = "Менеджер",
+//                    ContractDate = DateTime.Now.AddYears(-2),
+//                    ContractDurationYears = 5,
+//                    Salary = 70000
+//                },
+//                new Employee
+//                {
+//                    LastName = "Сидорова",
+//                    Position = "Бухгалтер",
+//                    ContractDate = DateTime.Now.AddDays(-100),
+//                    ContractDurationYears = 1,
+//                    Salary = 75000
+//                }
+//            };
+//            Console.WriteLine("Работники, подписавшие контракт менее года назад:\n");
+//            var recentEmployees = employees.Where(e => e.ContractDate > oneYearAgo);
+//            foreach (var emp in recentEmployees)
+//            {
+//                emp.PrintInfo();
+//            }
+//        }
+//    }
+//}
 
 ////lab8
 //using System.Data;
@@ -535,3 +535,93 @@ namespace EmployeeContracts
 //Console.WriteLine(dateNow.Millisecond);
 //Console.WriteLine(dateNow.Second)
 
+namespace TechSupportApp
+{
+    struct SupportRequest
+    {
+        public DateTime CallDate;
+        public TimeSpan CallTime;
+        public string Address;
+        public string IssueType;
+        public string Status;
+        public int GetDayOfWeekNumber()
+        {
+            int day = (int)CallDate.DayOfWeek;
+            return day == 0 ? 7 : day;
+        }
+        public void PrintInfo(bool showDayOfWeek = false)
+        {
+            string dayInfo = showDayOfWeek ? $" | День недели: {GetDayOfWeekNumber()}" : "";
+            Console.WriteLine($"Дата: {CallDate:dd.MM.yyyy} | Время: {CallTime:hh\\:mm}{dayInfo}");
+            Console.WriteLine($"Адрес: {Address}");
+            Console.WriteLine($"Неисправность: {IssueType} | Статус: {Status}");
+            Console.WriteLine(new string('-', 55));
+        }
+    }
+    class Program
+    {
+        static void Main()
+        {
+            List<SupportRequest> requests = new List<SupportRequest>
+            {
+                new SupportRequest
+                {
+                    CallDate = DateTime.Today.AddDays(-5),
+                    CallTime = new TimeSpan(10, 15, 0),
+                    Address = "ул. Ленина, д. 12, кв. 45",
+                    IssueType = "Нет доступа в интернет",
+                    Status = "устранено"
+                },
+                new SupportRequest
+                {
+                    CallDate = DateTime.Today.AddDays(-2),
+                    CallTime = new TimeSpan(14, 30, 0),
+                    Address = "пр. Мира, д. 88, кв. 10",
+                    IssueType = "Низкая скорость соединения",
+                    Status = "ведутся работы"
+                },
+                new SupportRequest
+                {
+                    CallDate = DateTime.Today.AddDays(-1),
+                    CallTime = new TimeSpan(18, 05, 0),
+                    Address = "ул. Гагарина, д. 3, кв. 7",
+                    IssueType = "Обрыв кабеля в подъезде",
+                    Status = "в очереди"
+                },
+                new SupportRequest
+                {
+                    CallDate = DateTime.Today,
+                    CallTime = new TimeSpan(09, 40, 0),
+                    Address = "ул. Пушкина, д. 21, кв. 14",
+                    IssueType = "Не работает роутер",
+                    Status = "устранено"
+                }
+            };
+            Console.WriteLine("все заявки (с номером недели)");
+            foreach (var req in requests)
+            {
+                req.PrintInfo(showDayOfWeek: true);
+            }
+            Console.WriteLine("\n невыполненные заявки за последние 3 дня");
+            DateTime threeDaysAgo = DateTime.Today.AddDays(-3);
+            bool found = false;
+
+            foreach (var req in requests)
+            {
+                bool isUnfinished = !req.Status.Equals("устранено", StringComparison.OrdinalIgnoreCase);
+                bool isRecent = req.CallDate.Date >= threeDaysAgo && req.CallDate.Date <= DateTime.Today;
+
+                if (isUnfinished && isRecent)
+                {
+                    req.PrintInfo(showDayOfWeek: false);
+                    found = true;
+                }
+            }
+
+            if (!found)
+            {
+                Console.WriteLine("Подходящих заявок не найдено.");
+            }
+        }
+    }
+}
