@@ -535,93 +535,144 @@
 //Console.WriteLine(dateNow.Millisecond);
 //Console.WriteLine(dateNow.Second)
 
-namespace TechSupportApp
+//namespace TechSupportApp
+//{
+//    struct SupportRequest
+//    {
+//        public DateTime CallDate;
+//        public TimeSpan CallTime;
+//        public string Address;
+//        public string IssueType;
+//        public string Status;
+//        public int GetDayOfWeekNumber()
+//        {
+//            int day = (int)CallDate.DayOfWeek;
+//            return day == 0 ? 7 : day;
+//        }
+//        public void PrintInfo(bool showDayOfWeek = false)
+//        {
+//            string dayInfo = showDayOfWeek ? $" | День недели: {GetDayOfWeekNumber()}" : "";
+//            Console.WriteLine($"Дата: {CallDate:dd.MM.yyyy} | Время: {CallTime:hh\\:mm}{dayInfo}");
+//            Console.WriteLine($"Адрес: {Address}");
+//            Console.WriteLine($"Неисправность: {IssueType} | Статус: {Status}");
+//            Console.WriteLine(new string('-', 55));
+//        }
+//    }
+//    class Program
+//    {
+//        static void Main()
+//        {
+//            List<SupportRequest> requests = new List<SupportRequest>
+//            {
+//                new SupportRequest
+//                {
+//                    CallDate = DateTime.Today.AddDays(-5),
+//                    CallTime = new TimeSpan(10, 15, 0),
+//                    Address = "ул. Ленина, д. 12, кв. 45",
+//                    IssueType = "Нет доступа в интернет",
+//                    Status = "устранено"
+//                },
+//                new SupportRequest
+//                {
+//                    CallDate = DateTime.Today.AddDays(-2),
+//                    CallTime = new TimeSpan(14, 30, 0),
+//                    Address = "пр. Мира, д. 88, кв. 10",
+//                    IssueType = "Низкая скорость соединения",
+//                    Status = "ведутся работы"
+//                },
+//                new SupportRequest
+//                {
+//                    CallDate = DateTime.Today.AddDays(-1),
+//                    CallTime = new TimeSpan(18, 05, 0),
+//                    Address = "ул. Гагарина, д. 3, кв. 7",
+//                    IssueType = "Обрыв кабеля в подъезде",
+//                    Status = "в очереди"
+//                },
+//                new SupportRequest
+//                {
+//                    CallDate = DateTime.Today,
+//                    CallTime = new TimeSpan(09, 40, 0),
+//                    Address = "ул. Пушкина, д. 21, кв. 14",
+//                    IssueType = "Не работает роутер",
+//                    Status = "устранено"
+//                }
+//            };
+//            Console.WriteLine("все заявки (с номером недели)");
+//            foreach (var req in requests)
+//            {
+//                req.PrintInfo(showDayOfWeek: true);
+//            }
+//            Console.WriteLine("\n невыполненные заявки за последние 3 дня");
+//            DateTime threeDaysAgo = DateTime.Today.AddDays(-3);
+//            bool found = false;
+
+//            foreach (var req in requests)
+//            {
+//                bool isUnfinished = !req.Status.Equals("устранено", StringComparison.OrdinalIgnoreCase);
+//                bool isRecent = req.CallDate.Date >= threeDaysAgo && req.CallDate.Date <= DateTime.Today;
+
+//                if (isUnfinished && isRecent)
+//                {
+//                    req.PrintInfo(showDayOfWeek: false);
+//                    found = true;
+//                }
+//            }
+
+//            if (!found)
+//            {
+//                Console.WriteLine("Подходящих заявок не найдено.");
+//            }
+//        }
+//    }
+//}
+
+Numbers task23 = new Numbers();
+Console.Write("Введите число:");
+task23.A = int.Parse(Console.ReadLine());
+Console.Write("Введите число:");
+task23.B = int.Parse(Console.ReadLine());
+Console.Write("Введите число:");
+task23.C = int.Parse(Console.ReadLine());
+Console.Write("Введите число:");
+task23.D = int.Parse(Console.ReadLine());
+task23.Print();
+class Numbers
 {
-    struct SupportRequest
+    private int a;
+    private int b;
+    private int c;
+    private int d;
+    public int A
     {
-        public DateTime CallDate;
-        public TimeSpan CallTime;
-        public string Address;
-        public string IssueType;
-        public string Status;
-        public int GetDayOfWeekNumber()
-        {
-            int day = (int)CallDate.DayOfWeek;
-            return day == 0 ? 7 : day;
-        }
-        public void PrintInfo(bool showDayOfWeek = false)
-        {
-            string dayInfo = showDayOfWeek ? $" | День недели: {GetDayOfWeekNumber()}" : "";
-            Console.WriteLine($"Дата: {CallDate:dd.MM.yyyy} | Время: {CallTime:hh\\:mm}{dayInfo}");
-            Console.WriteLine($"Адрес: {Address}");
-            Console.WriteLine($"Неисправность: {IssueType} | Статус: {Status}");
-            Console.WriteLine(new string('-', 55));
-        }
+        private get { return a; }
+        set { a = value; }
     }
-    class Program
+    public int B
     {
-        static void Main()
-        {
-            List<SupportRequest> requests = new List<SupportRequest>
-            {
-                new SupportRequest
-                {
-                    CallDate = DateTime.Today.AddDays(-5),
-                    CallTime = new TimeSpan(10, 15, 0),
-                    Address = "ул. Ленина, д. 12, кв. 45",
-                    IssueType = "Нет доступа в интернет",
-                    Status = "устранено"
-                },
-                new SupportRequest
-                {
-                    CallDate = DateTime.Today.AddDays(-2),
-                    CallTime = new TimeSpan(14, 30, 0),
-                    Address = "пр. Мира, д. 88, кв. 10",
-                    IssueType = "Низкая скорость соединения",
-                    Status = "ведутся работы"
-                },
-                new SupportRequest
-                {
-                    CallDate = DateTime.Today.AddDays(-1),
-                    CallTime = new TimeSpan(18, 05, 0),
-                    Address = "ул. Гагарина, д. 3, кв. 7",
-                    IssueType = "Обрыв кабеля в подъезде",
-                    Status = "в очереди"
-                },
-                new SupportRequest
-                {
-                    CallDate = DateTime.Today,
-                    CallTime = new TimeSpan(09, 40, 0),
-                    Address = "ул. Пушкина, д. 21, кв. 14",
-                    IssueType = "Не работает роутер",
-                    Status = "устранено"
-                }
-            };
-            Console.WriteLine("все заявки (с номером недели)");
-            foreach (var req in requests)
-            {
-                req.PrintInfo(showDayOfWeek: true);
-            }
-            Console.WriteLine("\n невыполненные заявки за последние 3 дня");
-            DateTime threeDaysAgo = DateTime.Today.AddDays(-3);
-            bool found = false;
-
-            foreach (var req in requests)
-            {
-                bool isUnfinished = !req.Status.Equals("устранено", StringComparison.OrdinalIgnoreCase);
-                bool isRecent = req.CallDate.Date >= threeDaysAgo && req.CallDate.Date <= DateTime.Today;
-
-                if (isUnfinished && isRecent)
-                {
-                    req.PrintInfo(showDayOfWeek: false);
-                    found = true;
-                }
-            }
-
-            if (!found)
-            {
-                Console.WriteLine("Подходящих заявок не найдено.");
-            }
-        }
+        private get { return b; }
+        set { b = value; }
+    }
+    public int C
+    {
+        private get { return c; }
+        set { c = value; }
+    }
+    public int D
+    {
+        private get { return d; }
+        set { d = value; }
+    }
+    private double GetAverage()
+    {
+        return (A + B + C + D) / 4.0;
+    }
+    private int GetMax()
+    {
+        return Math.Max(Math.Max(A, B), Math.Max(C, D));
+    }
+    public void Print()
+    {
+        Console.WriteLine($"Среднее арифметическое: {GetAverage()}");
+        Console.WriteLine($"Максимальное число: {GetMax()}");
     }
 }
